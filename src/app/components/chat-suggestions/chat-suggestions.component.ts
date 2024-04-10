@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { QuestionComponent } from '../../icons/question/question.component';
 import { CuriosityComponent } from '../../icons/curiosity/curiosity.component';
 
@@ -11,6 +11,8 @@ import { CuriosityComponent } from '../../icons/curiosity/curiosity.component';
   styleUrl: './chat-suggestions.component.scss',
 })
 export class ChatSuggestionsComponent {
+  @Output() questionSelected = new EventEmitter<string>();
+
   suggestionTopics = [
     {
       title: 'Perguntas Frequentes',
@@ -18,7 +20,7 @@ export class ChatSuggestionsComponent {
       questions: [
         'Quais são as soluções de pagamento disponíveis?',
         'Quais são os diferenciais?',
-      ]
+      ],
     },
     {
       title: 'Quero ser um colaborador',
@@ -26,7 +28,11 @@ export class ChatSuggestionsComponent {
       questions: [
         'Como eu posso entrar em contato?',
         'Como faço pra ser um parceiro MR Pay?',
-      ]
-    }
+      ],
+    },
   ];
+
+  selectQuestion(question: string) {
+    this.questionSelected.emit(question);
+  }
 }

@@ -1,16 +1,19 @@
-
 <main class="chat-wrapper">
-    <header>
-        <button>
-            <icon-arrow-left></icon-arrow-left>
-        </button>
-        <icon-logo-minor class="mrpay"></icon-logo-minor>
-        <div class="status">
-            <p>Mr Pay</p>
-            <span>• Online</span>
-        </div>
-    </header>
-    <section class="chat">
-        <chat-suggestions></chat-suggestions>
-    </section>
+  <header>
+    <button>
+      <icon-arrow-left></icon-arrow-left>
+    </button>
+    <icon-logo-minor class="mrpay"></icon-logo-minor>
+    <div class="status">
+      <p>Mr Pay</p>
+      <span>• Online</span>
+    </div>
+  </header>
+  <section class="chat">
+    <chat-suggestions
+      (questionSelected)="sendSuggestedQuestion($event)"
+      *ngIf="messages.length === 0"
+    ></chat-suggestions>
+    <chat-dialog [messages]="messages"></chat-dialog>
+  </section>
 </main>
