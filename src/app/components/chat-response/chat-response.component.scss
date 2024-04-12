@@ -12,10 +12,10 @@
     text-align: center;
 
     &.response {
-      background-color: var(--color-secondary);
+      background-color: #e4dfdf;
       color: var(--color-tertiary);
       align-self: flex-start;
-      border-radius: 22px 0 22px;
+      border-radius: 22px 0 22px 22px;
     }
 
     &.request {
